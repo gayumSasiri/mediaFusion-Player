@@ -1,4 +1,4 @@
-![Screenshot from 2023-11-12 12-56-21](https://github.com/gayumSasiri/mediaFusion-Player/assets/138274096/64d737a9-aff5-41ad-8566-4e26a2ad2931)# MediaFusion media player
+# MediaFusion media player
 
 Welcome to the MediaFusion Media Player App GitHub repository! This media player is designed to provide a user-friendly interface along with several key features to enhance your media playback experience.
 
