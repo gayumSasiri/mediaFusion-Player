@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -39,6 +40,18 @@ public class MainUiSceneController {
     public AnchorPane mediaRoot;
     MediaPlayer videoPlayer;
     String fileName;
+
+    public void initialize(){
+        btnPlay.setTooltip(new Tooltip("Play"));
+        btnFaster.setTooltip(new Tooltip("2X speed"));
+        btnBrowse.setTooltip(new Tooltip("Browse media"));
+        btnMaximize.setTooltip(new Tooltip("Full Screen view"));
+        btnSlower.setTooltip(new Tooltip("0.5X slower"));
+        btnPause.setTooltip(new Tooltip("Pause"));
+        btnStop.setTooltip(new Tooltip("Stop"));
+        btnTenSecBack.setTooltip(new Tooltip("Ten Seconds Back"));
+        btnTenSecForward.setTooltip(new Tooltip("Ten Seconds Forward"));
+    }
 
     public void btnBrowseOnAction(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
