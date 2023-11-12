@@ -1,14 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.dep11.controller.MainUiSceneController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="root" prefHeight="584.0" prefWidth="837.0" style="-fx-background-color: #1b1d20;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.controller.MainUiSceneController">
+   <children>
+      <VBox layoutX="90.0" layoutY="37.0" prefHeight="584.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane fx:id="mediaRoot" prefHeight="448.0" prefWidth="837.0">
+               <children>
+                  <ImageView fx:id="imgView" fitHeight="478.0" fitWidth="837.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="31.109527587890625" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@../img/ui-loading/background-image.jpg" />
+                     </image></ImageView>
+                  <MediaView fx:id="mvPlayerViewport" fitHeight="200.0" fitWidth="800.0" />
+               </children>
+            </AnchorPane>
+            <Slider fx:id="slrTimeLine">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </VBox.margin>
+            </Slider>
+            <HBox prefHeight="26.0" prefWidth="784.0">
+               <children>
+                  <JFXButton fx:id="btnBrowse" onAction="#btnBrowseOnAction" style="-fx-border-color: white; -fx-border-radius: 5px;" text="BROWSE" textFill="#f8f6f6">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btnPlay" defaultButton="true" onAction="#btnPlayOnAction" style="-fx-border-color: white; -fx-border-radius: 5px;" text="▶" textFill="#f8f8f8">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btnPause" onAction="#btnPauseOnAction" style="-fx-border-color: white; -fx-border-radius: 5px;" text="■" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btnTenSecBack" onAction="#btnTenSecBackOnAction" style="-fx-border-color: white; -fx-border-radius: 5px;" text="«" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btnStop" onAction="#btnStopOnAction" style="-fx-border-color: white; -fx-border-radius: 5px;" text="| |" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Ubuntu Bold" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btnTenSecForward" onAction="#btnTenSecForwardOnAction" style="-fx-border-color: white; -fx-border-radius: 5px;" text="»" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Ubuntu Bold" size="13.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnSlower" onAction="#btnSlowerOnAction" style="-fx-border-color: white; -fx-border-radius: 5px;" text="0.5x" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Ubuntu Bold" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btnFaster" onAction="#btnFasterOnAction" style="-fx-border-color: white; -fx-border-radius: 5px;" text="2.0x" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Ubuntu Bold" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXSlider fx:id="slrVolume" onMouseClicked="#slrVolumeOnClick" onMouseDragged="#slrVolumeOnDragged" prefHeight="16.0" prefWidth="146.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXSlider>
+                  <Label fx:id="lblVolume" style="-fx-border-color: white; -fx-border-radius: 5px;" text="50%" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="8.0" right="8.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <JFXButton fx:id="btnMaximize" onAction="#btnMaximizeOnAction" style="-fx-border-color: white; -fx-border-radius: 5px;" text="◳" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Ubuntu Bold" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

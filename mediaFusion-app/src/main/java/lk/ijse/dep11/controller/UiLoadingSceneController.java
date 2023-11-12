@@ -44,6 +44,7 @@ public class UiLoadingSceneController {
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.setTitle("MediaFusion App V 1.0.0");
+                stage.setResizable(false);
                 stage.show();
                 stage.centerOnScreen();
                 Stage primaryStage = (Stage)root.getScene().getWindow();
