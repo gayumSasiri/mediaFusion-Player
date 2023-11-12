@@ -10,7 +10,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -19,6 +22,8 @@ import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.List;
 
 public class MainUiSceneController {
 
@@ -208,4 +213,41 @@ public class MainUiSceneController {
             slrTimeLine.setValue(0);
         }
     }
+
+    //-------------------drag and drop implementation----------------------
+
+    public void rootOnDragDropped(DragEvent dragEvent) throws FileNotFoundException {
+        List<File> files = dragEvent.getDragboard().getFiles();
+        for ( File selectedFile: files) {
+            if (selectedFile != null) {
+                fileName = selectedFile.getName();
+                String fileExtension = getExtension(fileName);
+
+                if (isVideoFile(fileExtension)) {
+                    mediaRoot.getChildren().remove(imgView);
+                } else if (isAudioFile(fileExtension)) {
+                    mediaRoot.getChildren().remove(mvPlayerViewport);
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Unsupported file format!").show();
+                }
+            } else {
+                new Alert(Alert.AlertType.INFORMATION, "No file selected!").show();
+            }
+
+            if (selectedFile != null) {
+                Media media = new Media(selectedFile.toURI().toString());
+                videoPlayer = new MediaPlayer(media);
+                setVideoOnScreen();
+                btnPlay.fire();
+            }
+        }
+    }
+
+    public void rootOnDragOver(DragEvent dragEvent) {
+        if (dragEvent.getDragboard().hasFiles()) {
+            System.out.println("awaaaaaaaaaaaaa!");
+            dragEvent.acceptTransferModes(TransferMode.ANY);
+        }
+    }
+
 }
