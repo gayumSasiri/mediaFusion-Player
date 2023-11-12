@@ -32,7 +32,7 @@ To get started with the Media Player App, follow these steps:
 
 1. Clone the repository to your local machine.
    ```bash
-   git clone https://github.com/your-username/media-player-app.git
+   https://github.com/gayumSasiri/mediaFusion-Player.git
 
 
 ### Version 1.0.0
