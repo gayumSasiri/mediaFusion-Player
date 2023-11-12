@@ -2,6 +2,8 @@ package lk.ijse.dep11.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSlider;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -161,5 +163,36 @@ public class MainUiSceneController {
     private void setVideoOnScreen() {
         mvPlayerViewport.fitWidthProperty().bind(mediaRoot.widthProperty());
         mvPlayerViewport.fitHeightProperty().bind(mediaRoot.heightProperty());
+
+        videoPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
+            @Override
+            public void changed(ObservableValue<? extends Duration> observableValue, Duration duration, Duration t1) {
+                slrTimeLine.setValue(t1.toSeconds());
+            }
+        });
+
+        videoPlayer.setOnReady(new Runnable() {
+            @Override
+            public void run() {
+                Duration totalDuration = videoPlayer.getTotalDuration();
+                slrTimeLine.setMax(totalDuration.toSeconds());
+            }
+        });
+    }
+
+    public void slrTimeLineOnClick(MouseEvent mouseEvent) {
+        if (videoPlayer != null) {
+            videoPlayer.seek(Duration.seconds(slrTimeLine.getValue()));
+        }else {
+            slrTimeLine.setValue(0);
+        }
+    }
+
+    public void slrTimeLineOnDragged(MouseEvent mouseEvent) {
+        if (videoPlayer != null) {
+            videoPlayer.seek(Duration.seconds(slrTimeLine.getValue()));
+        }else {
+            slrTimeLine.setValue(0);
+        }
     }
 }

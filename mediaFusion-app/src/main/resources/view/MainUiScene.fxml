@@ -14,22 +14,23 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="584.0" prefWidth="837.0" style="-fx-background-color: #1b1d20;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.controller.MainUiSceneController">
+<AnchorPane fx:id="root" prefHeight="473.0" prefWidth="858.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.controller.MainUiSceneController">
    <children>
       <VBox layoutX="90.0" layoutY="37.0" prefHeight="584.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane fx:id="mediaRoot" prefHeight="448.0" prefWidth="837.0">
                <children>
-                  <ImageView fx:id="imgView" fitHeight="478.0" fitWidth="837.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="31.109527587890625" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ImageView fx:id="imgView" fitHeight="413.0" fitWidth="864.0" layoutX="62.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="61.89935302734375" AnchorPane.topAnchor="0.0">
                      <image>
                         <Image url="@../img/ui-loading/background-image.jpg" />
-                     </image></ImageView>
-                  <MediaView fx:id="mvPlayerViewport" fitHeight="200.0" fitWidth="800.0" />
+                     </image>
+                  </ImageView>
+                  <MediaView fx:id="mvPlayerViewport" fitHeight="200.0" fitWidth="200.0" layoutY="7.0" />
                </children>
             </AnchorPane>
-            <Slider fx:id="slrTimeLine">
+            <Slider fx:id="slrTimeLine" onMouseClicked="#slrTimeLineOnClick" onMouseDragged="#slrTimeLineOnDragged">
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
                </VBox.margin>
             </Slider>
             <HBox prefHeight="26.0" prefWidth="784.0">
